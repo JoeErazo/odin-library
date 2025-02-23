@@ -1,3 +1,21 @@
+:root {
+  --font-small: 16px;
+  --font-medium: 21px;
+  --font-large: 24px;
+  --font-big: 32px;
+  --padding-small: 20px;
+  --padding-medium: 40px;
+  --gap-small: 20px;
+  --gap-medium: 30px;
+  --gap-large: 40px;
+  --radius-tiny: 2px;
+  --radius-small:4px;
+  --radius-medium: 8px;
+  --transluscent-gray: rgb(0, 0, 0, 0.2);
+  --button-large-width: 128px;
+  --button-large-height: 48px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +23,7 @@
 }
 
 body {
-  padding: 40px;
+  padding: var(--padding-medium);
   background-color: whitesmoke;
 }
 
@@ -13,54 +31,63 @@ button {
   appearance: none;
   align-self: center;
   border: none;
-  border-radius: 4px;
-  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.2);
-  height: 30px;
-  width: 60px;
+  border-radius: var(--radius-small);
+  box-shadow: 0 1px 2px var(--transluscent-gray);
+  width: var(--button-large-width);
+  height: var(--button-large-height);
+}
+
+h1 {
+  font-size: var(--font-big);
+}
+
+h4 {
+  font-size: var(--font-big);
+  margin-bottom: 24px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: var(--gap-large);
 }
 
 .header {
   background-color: white;
-  box-shadow: 0 2px 3px rgb(0, 0, 0, 0.2);
+  box-shadow: 0 2px 3px var(--transluscent-gray);
   width: 100%;
-  padding: 20px;
-  border-radius: 8px;
+  padding: var(--padding-small);
+  border-radius: var(--radius-medium);
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 30px;
+  gap: var(--gap-medium);
   justify-items: center;
 }
 
 .header-buttons {
   display: flex;
-  gap: 20px;
+  gap: var(--gap-small);
 }
 
 .card-container {
   width: 100%;
-  padding: 30px;
+  padding: calc(var(--padding-medium));
   background-color: gainsboro;
-  border-radius: 8px;
-  box-shadow: 0 0 5px inset rgb(0, 0, 0, 0.2);
+  border-radius: var(--radius-medium);
+  box-shadow: 0 0 5px inset var(--transluscent-gray);
   display: grid;
   grid-template-columns: 300px;
   grid-auto-rows: 500px;
-  gap: 30px;
+  gap: var(--gap-large);
   justify-content: center;
 }
 
 .card {
-  border-radius: 8px;
+  border-radius: var(--radius-medium);
   overflow: hidden;
   background-color: white;
-  box-shadow: 0 6px 6px rgb(0, 0, 0, 0.2);
+  box-shadow: 0 6px 6px var(--transluscent-gray);
 }
 
 .book-cover {
@@ -70,5 +97,48 @@ button {
 
 .book-details {
   height: 200px;
-  padding: 20px;
+  padding: var(--padding-small);
+}
+
+#modal[open] {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  padding: var(--padding-medium);
+  border: none;
+  border-radius: var(--radius-medium);
+  box-shadow: 0 4px 5px var(--transluscent-gray);
+}
+
+#modal[open]::backdrop {
+  background-color: var(--transluscent-gray);
+  backdrop-filter: blur(1px);
+}
+
+.book-inputs {
+  border: none;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  row-gap: var(--gap-small);
+  margin-bottom: 32px;
+  font-size: var(--font-medium);
+}
+
+.book-inputs input[type="text"],
+.book-inputs input[type="number"] {
+  border: none;
+  background-color: gainsboro;
+  border-radius: 2px;
+  box-shadow: 0 0 1px inset rgb(0, 0, 0, 0.3);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-medium);
+}
+
+.form-buttons button {
+  font-size: var(--font-small);
 }
