@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 40px;
+  background-color: whitesmoke;
+}
+
+button {
+  appearance: none;
+  align-self: center;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.2);
+  height: 30px;
+  width: 60px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.header {
+  background-color: white;
+  box-shadow: 0 2px 3px rgb(0, 0, 0, 0.2);
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  justify-items: center;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.card-container {
+  width: 100%;
+  padding: 30px;
+  background-color: gainsboro;
+  border-radius: 8px;
+  box-shadow: 0 0 5px inset rgb(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: 300px;
+  grid-auto-rows: 500px;
+  gap: 30px;
+  justify-content: center;
+}
+
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 6px 6px rgb(0, 0, 0, 0.2);
+}
+
+.book-cover {
+  height: 300px;
+  background-color: rebeccapurple;
+}
+
+.book-details {
+  height: 200px;
+  padding: 20px;
+}
