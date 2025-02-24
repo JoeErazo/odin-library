@@ -29,7 +29,7 @@ const modal = document.querySelector("#modal");
 const formTitle = document.querySelector("#title");
 const formAuthor = document.querySelector("#author");
 const formPageCount = document.querySelector("#page-count");
-const formRead = document.querySelector("is-read");
+const formRead = document.querySelector("#is-read");
 const formAdd = document.querySelector("#add");
 const formCancel = document.querySelector("#cancel");
 const cardContainer = document.querySelector(".card-container");
@@ -44,6 +44,11 @@ function enableRemoveButton(button) {
 addBookButton.addEventListener("click", function() {
   modal.showModal();
   modal.returnValue = ""; // prevent unexpected addition of card
+  // reset form input values
+  formTitle.value = null;
+  formAuthor.value = null;
+  formPageCount.value = "";
+  formRead.checked = false;
 });
 
 formCancel.addEventListener("click", function(e) {
@@ -67,7 +72,7 @@ modal.addEventListener("close", function() {
         <h2 class="book-title">${formTitle.value}</h2>
         <h3 class="author">${formAuthor.value}</h3>
         <p class="page-count">${formPageCount.value}</p>
-        <p class="read">${formRead ? "Read" : "Not Read"}</p>
+        <p class="read">${formRead.checked ? "Read" : "Not Read"}</p>
       </div>
     `;
     newCard.prepend(newRemoveButton);
