@@ -5,6 +5,7 @@
   --font-big: 32px;
   --padding-small: 20px;
   --padding-medium: 40px;
+  --gap-tiny: 10px;
   --gap-small: 20px;
   --gap-medium: 30px;
   --gap-large: 40px;
@@ -12,6 +13,8 @@
   --radius-small:4px;
   --radius-medium: 8px;
   --transluscent-gray: rgb(0, 0, 0, 0.2);
+  --button-small-width: 60px;
+  --button-small-height: 30px;
   --button-large-width: 128px;
   --button-large-height: 48px;
 }
@@ -88,6 +91,17 @@ h4 {
   overflow: hidden;
   background-color: white;
   box-shadow: 0 6px 6px var(--transluscent-gray);
+  position: relative;
+}
+
+button.remove-card {
+  background-color: transparent;
+  backdrop-filter: blur(1px);
+  position: absolute;
+  height: var(--button-small-height);
+  width: var(--button-small-width);
+  top: var(--gap-tiny);
+  right: var(--gap-tiny);
 }
 
 .book-cover {
