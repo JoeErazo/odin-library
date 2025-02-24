@@ -62,3 +62,11 @@ modal.addEventListener("close", function() {
     cardContainer.appendChild(newCard);
   }
 });
+
+modal.addEventListener("keydown", function(e) {
+  if(e.key==="Enter"){
+    e.preventDefault();
+    modal.returnValue = "add";
+    modal.close();
+  }
+});
