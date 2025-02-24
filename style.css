@@ -77,7 +77,7 @@ h4 {
   border-radius: var(--radius-medium);
   box-shadow: 0 0 5px inset var(--transluscent-gray);
   display: grid;
-  grid-template-columns: 300px;
+  grid-template-columns: repeat(auto-fit, 300px);
   grid-auto-rows: 500px;
   gap: var(--gap-large);
   justify-content: center;
