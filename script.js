@@ -33,6 +33,13 @@ const formRead = document.querySelector("is-read");
 const formAdd = document.querySelector("#add");
 const formCancel = document.querySelector("#cancel");
 const cardContainer = document.querySelector(".card-container");
+const removeButton = document.querySelectorAll(".remove-card");
+
+function enableRemoveButton(button) {
+  button.addEventListener("click", function() {
+    button.closest("div.card").remove();
+  });
+}
 
 addBookButton.addEventListener("click", function() {
   modal.showModal();
@@ -50,6 +57,10 @@ modal.addEventListener("close", function() {
   if(modal.returnValue === "add") {
     let newCard = document.createElement("div");
     newCard.classList.add("card");
+    let newRemoveButton = document.createElement("button");
+    newRemoveButton.classList.add("remove-card");
+    newRemoveButton.textContent = "☓";
+    enableRemoveButton(newRemoveButton);
     newCard.innerHTML = `
       <div class="book-cover"></div>
       <div class="book-details">
@@ -59,6 +70,7 @@ modal.addEventListener("close", function() {
         <p class="read">${formRead ? "Read" : "Not Read"}</p>
       </div>
     `;
+    newCard.prepend(newRemoveButton);
     cardContainer.appendChild(newCard);
   }
 });
@@ -70,3 +82,6 @@ modal.addEventListener("keydown", function(e) {
     modal.close();
   }
 });
+
+// enable remove button functionality on existing cards
+removeButton.forEach((button) => enableRemoveButton(button));
