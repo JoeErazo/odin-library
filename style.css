@@ -30,14 +30,37 @@ body {
   background-color: whitesmoke;
 }
 
-button {
+button,
+input[type="checkbox"] {
   appearance: none;
+}
+
+button {
   align-self: center;
   border: none;
   border-radius: var(--radius-small);
   box-shadow: 0 1px 2px var(--transluscent-gray);
   width: var(--button-large-width);
   height: var(--button-large-height);
+}
+
+input[type="checkbox"] {
+  background-color: gainsboro;
+  height: 15px;
+  width: 15px;
+  position: relative;
+}
+
+input[type="checkbox"]::before {
+  content: "🗸";
+  font-size: var(--font-medium);
+  position: absolute;
+  top: -10px;
+  visibility: hidden;
+}
+
+input[type="checkbox"]:checked:before {
+  visibility: visible;
 }
 
 h1 {
