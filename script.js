@@ -34,10 +34,22 @@ const formAdd = document.querySelector("#add");
 const formCancel = document.querySelector("#cancel");
 const cardContainer = document.querySelector(".card-container");
 const removeButton = document.querySelectorAll(".remove-card");
+const toggleRead = document.querySelectorAll(".toggle-read");
 
 function enableRemoveButton(button) {
   button.addEventListener("click", function() {
     button.closest("div.card").remove();
+  });
+}
+
+function enableToggleRead(button) {
+  button.addEventListener("click", function() {
+    const readContainer = button
+                            .closest("div.card")
+                            .querySelector("p.read");
+    readContainer.textContent =
+      readContainer.textContent === "Read" ? "Not Read" : "Read";
+    button.textContent = button.textContent === "🗸" ? "᠆" : "🗸";
   });
 }
 
@@ -60,9 +72,9 @@ modal.addEventListener("close", function() {
   // check validity of form submission before adding card
   // success: returnValue = "add"; failed: returnValue = ""
   if(modal.returnValue === "add") {
-    let newCard = document.createElement("div");
+    const newCard = document.createElement("div");
     newCard.classList.add("card");
-    let newRemoveButton = document.createElement("button");
+    const newRemoveButton = document.createElement("button");
     newRemoveButton.classList.add("remove-card");
     newRemoveButton.textContent = "☓";
     enableRemoveButton(newRemoveButton);
@@ -75,7 +87,13 @@ modal.addEventListener("close", function() {
         <p class="read">${formRead.checked ? "Read" : "Not Read"}</p>
       </div>
     `;
+    const newToggleRead = document.createElement("button");
+    newToggleRead.classList.add("toggle-read");
+    newToggleRead.textContent = formRead.checked ? "🗸" : "᠆";
+    enableToggleRead(newToggleRead);
+    
     newCard.prepend(newRemoveButton);
+    newCard.appendChild(newToggleRead);
     cardContainer.appendChild(newCard);
   }
 });
@@ -90,3 +108,4 @@ modal.addEventListener("keydown", function(e) {
 
 // enable remove button functionality on existing cards
 removeButton.forEach((button) => enableRemoveButton(button));
+toggleRead.forEach((button) => enableToggleRead(button));
