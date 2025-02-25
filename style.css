@@ -60,6 +60,10 @@ button:hover {
   cursor: pointer;
 }
 
+input:invalid {
+  outline: 3px solid brown;
+}
+
 input[type="checkbox"] {
   background-color: var(--inset-background-color);
   height: 15px;
