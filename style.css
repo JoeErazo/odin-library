@@ -12,11 +12,19 @@
   --radius-tiny: 2px;
   --radius-small:4px;
   --radius-medium: 8px;
-  --transluscent-gray: rgb(0, 0, 0, 0.2);
   --button-small-width: 60px;
   --button-small-height: 30px;
   --button-large-width: 128px;
   --button-large-height: 48px;
+  --base-background-color: whitesmoke;
+  --top-background-color: white;
+  --inset-background-color: gainsboro;
+  --button-base-color: rgb(230, 230, 230);
+  --transluscent-gray: rgb(0, 0, 0, 0.2);
+  --header-button-hover-color: rgb(240, 240, 240);
+  --card-button-hover-color: rgb(255, 255, 255, 0.2);
+  --header-button-active-color: rgb(200, 200, 200);
+  --card-button-active-color: rgb(180, 180, 180, 0.2);
 }
 
 * {
@@ -27,7 +35,7 @@
 
 body {
   padding: var(--padding-medium);
-  background-color: whitesmoke;
+  background-color: var(--base-background-color);
 }
 
 button,
@@ -36,6 +44,7 @@ input[type="checkbox"] {
 }
 
 button {
+  background-color: var(--button-base-color);
   align-self: center;
   border: none;
   border-radius: var(--radius-small);
@@ -44,8 +53,12 @@ button {
   height: var(--button-large-height);
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 input[type="checkbox"] {
-  background-color: gainsboro;
+  background-color: var(--inset-background-color);
   height: 15px;
   width: 15px;
   position: relative;
@@ -80,7 +93,7 @@ h4 {
 }
 
 .header {
-  background-color: white;
+  background-color: var(--top-background-color);
   box-shadow: 0 2px 3px var(--transluscent-gray);
   width: 100%;
   padding: var(--padding-small);
@@ -96,10 +109,18 @@ h4 {
   gap: var(--gap-small);
 }
 
+.header-buttons button:hover {
+  background-color: var(--header-button-hover-color);
+}
+
+.header-buttons button:active {
+  background-color: var(--header-button-active-color);
+}
+
 .card-container {
   width: 100%;
   padding: calc(var(--padding-medium));
-  background-color: gainsboro;
+  background-color: var(--inset-background-color);
   border-radius: var(--radius-medium);
   box-shadow: 0 0 5px inset var(--transluscent-gray);
   display: grid;
@@ -112,9 +133,17 @@ h4 {
 .card {
   border-radius: var(--radius-medium);
   overflow: hidden;
-  background-color: white;
+  background-color: var(--top-background-color);
   box-shadow: 0 6px 6px var(--transluscent-gray);
   position: relative;
+}
+
+.card button:hover {
+  background-color: var(--card-button-hover-color);
+}
+
+.card button:active {
+  background-color: var(--card-button-active-color);
 }
 
 button.remove-card,
@@ -175,7 +204,7 @@ button.toggle-read {
 .book-inputs input[type="text"],
 .book-inputs input[type="number"] {
   border: none;
-  background-color: gainsboro;
+  background-color: var(--inset-background-color);
   border-radius: 2px;
   box-shadow: 0 0 1px inset rgb(0, 0, 0, 0.3);
 }
