@@ -117,14 +117,24 @@ h4 {
   position: relative;
 }
 
-button.remove-card {
+button.remove-card,
+button.toggle-read {
   background-color: transparent;
   backdrop-filter: blur(1px);
   position: absolute;
   height: var(--button-small-height);
   width: var(--button-small-width);
+  font-weight: 1000;
+}
+
+button.remove-card {
   top: var(--gap-tiny);
   right: var(--gap-tiny);
+}
+
+button.toggle-read {
+  top: var(--gap-tiny);
+  left: var(--gap-tiny);
 }
 
 .book-cover {
