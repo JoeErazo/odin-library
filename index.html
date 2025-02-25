@@ -74,11 +74,20 @@
         <h4>Add a book to your library:</h4>
         <form method="dialog">
           <fieldset class="book-inputs">
-            <label for="title">Book Title</label>
+            <label for="title">
+              Book Title
+              <span aria-label="required">*</span>
+            </label>
             <input type="text" id="title" required>
-            <label for="author">Author</label>
+            <label for="author">
+              Author
+              <span aria-label="required">*</span>
+            </label>
             <input type="text" id="author"  required>
-            <label for="page-count">No. of Pages</label>
+            <label for="page-count">
+              No. of Pages
+              <span aria-label="required">*</span>
+            </label>
             <input type="number" id="page-count" min="1"  required>
             <label for="is-read">
               <input type="checkbox" id="is-read">
