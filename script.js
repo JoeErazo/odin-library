@@ -94,29 +94,8 @@ modal.addEventListener("close", function() {
   // check validity of form submission before adding card
   // success: returnValue = "add"; failed: returnValue = ""
   if(modal.returnValue === "add") {
-    const newCard = document.createElement("div");
-    newCard.classList.add("card");
-    const newRemoveButton = document.createElement("button");
-    newRemoveButton.classList.add("remove-card");
-    newRemoveButton.textContent = "☓";
-    enableRemoveButton(newRemoveButton);
-    newCard.innerHTML = `
-      <div class="book-cover"></div>
-      <div class="book-details">
-        <h2 class="book-title">${formTitle.value}</h2>
-        <h3 class="author">${formAuthor.value}</h3>
-        <p class="page-count">${formPageCount.value}</p>
-        <p class="read">${formRead.checked ? "Read" : "Not Read"}</p>
-      </div>
-    `;
-    const newToggleRead = document.createElement("button");
-    newToggleRead.classList.add("toggle-read");
-    newToggleRead.textContent = formRead.checked ? "🗸" : "᠆";
-    enableToggleRead(newToggleRead);
-    
-    newCard.prepend(newRemoveButton);
-    newCard.appendChild(newToggleRead);
-    cardContainer.appendChild(newCard);
+    addBookToLibrary(formTitle.value, formAuthor.value, formPageCount.value, formRead.checked);
+    displayBooks();
   }
 });
 
