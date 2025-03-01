@@ -33,6 +33,7 @@
     myLibrary.forEach((book) => {
       cardsHTML += `
         <div class="card">
+          <button class="toggle-read">${book.read ? "🗸" : "᠆"}</button>
           <button class="remove-card">☓</button>
           <div class="book-cover"></div>
           <div class="book-details">
@@ -41,7 +42,6 @@
             <p class="page-count">${book.pages} pages</p>
             <p class="read">${book.read ? "Read" : "Not Read"}</p>
           </div>
-          <button class="toggle-read">${book.read ? "🗸" : "᠆"}</button>
         </div>
       `;
     });
