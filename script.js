@@ -19,7 +19,27 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function displayBooks() {
+  let cardsHTML = "";
+  myLibrary.forEach((book) => {
+    cardsHTML += `
+      <div class="card">
+        <button class="remove-card">☓</button>
+        <div class="book-cover"></div>
+        <div class="book-details">
+          <h2 class="book-title">${book.title}</h2>
+          <h3 class="author">${book.author}</h3>
+          <p class="page-count">${book.pages}</p>
+          <p class="read">${book.read ? "Read" : "Not Read"}</p>
+        </div>
+        <button class="toggle-read">${book.read ? "🗸" : "᠆"}</button>
+      </div>
+    `;
+  });
+  cardContainer.innerHTML = cardsHTML;
 
+  // enable remove button functionality on existing cards
+  document.querySelectorAll(".remove-card").forEach((button) => enableRemoveButton(button));
+  document.querySelectorAll(".toggle-read").forEach((button) => enableToggleRead(button));
 }
 
 // initialize myLibrary with default content
@@ -37,8 +57,6 @@ const formRead = document.querySelector("#is-read");
 const formAdd = document.querySelector("#add");
 const formCancel = document.querySelector("#cancel");
 const cardContainer = document.querySelector(".card-container");
-const removeButton = document.querySelectorAll(".remove-card");
-const toggleRead = document.querySelectorAll(".toggle-read");
 
 function enableRemoveButton(button) {
   button.addEventListener("click", function() {
@@ -110,6 +128,4 @@ modal.addEventListener("keydown", function(e) {
   }
 });
 
-// enable remove button functionality on existing cards
-removeButton.forEach((button) => enableRemoveButton(button));
-toggleRead.forEach((button) => enableToggleRead(button));
+displayBooks();
