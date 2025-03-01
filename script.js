@@ -38,7 +38,7 @@
           <div class="book-details">
             <h2 class="book-title">${book.title}</h2>
             <h3 class="author">${book.author}</h3>
-            <p class="page-count">${book.pages}</p>
+            <p class="page-count">${book.pages} pages</p>
             <p class="read">${book.read ? "Read" : "Not Read"}</p>
           </div>
           <button class="toggle-read">${book.read ? "🗸" : "᠆"}</button>
