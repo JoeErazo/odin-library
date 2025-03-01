@@ -1,4 +1,13 @@
 const myLibrary = [];
+const addBookButton = document.querySelector(".add-book");
+const modal = document.querySelector("#modal");
+const formTitle = document.querySelector("#title");
+const formAuthor = document.querySelector("#author");
+const formPageCount = document.querySelector("#page-count");
+const formRead = document.querySelector("#is-read");
+const formAdd = document.querySelector("#add");
+const formCancel = document.querySelector("#cancel");
+const cardContainer = document.querySelector(".card-container");
 
 class Book {
   constructor(title, author, pages, read) {
@@ -41,22 +50,6 @@ function displayBooks() {
   document.querySelectorAll(".remove-card").forEach((button) => enableRemoveButton(button));
   document.querySelectorAll(".toggle-read").forEach((button) => enableToggleRead(button));
 }
-
-// initialize myLibrary with default content
-addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 336, false);
-addBookToLibrary("The Alchemist", "Paulo Coelho", 208, true);
-addBookToLibrary("The Catcher in the Rye", "J.D. Salinger", 288, false);
-addBookToLibrary("Mrs. Frisby and the Rats of NIMH", "Robert C. O'Brien", 233, true);
-
-const addBookButton = document.querySelector(".add-book");
-const modal = document.querySelector("#modal");
-const formTitle = document.querySelector("#title");
-const formAuthor = document.querySelector("#author");
-const formPageCount = document.querySelector("#page-count");
-const formRead = document.querySelector("#is-read");
-const formAdd = document.querySelector("#add");
-const formCancel = document.querySelector("#cancel");
-const cardContainer = document.querySelector(".card-container");
 
 function enableRemoveButton(button) {
   button.addEventListener("click", function() {
@@ -106,5 +99,12 @@ modal.addEventListener("keydown", function(e) {
     modal.close();
   }
 });
+
+
+// initialize myLibrary with default content
+addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 336, false);
+addBookToLibrary("The Alchemist", "Paulo Coelho", 208, true);
+addBookToLibrary("The Catcher in the Rye", "J.D. Salinger", 288, false);
+addBookToLibrary("Mrs. Frisby and the Rats of NIMH", "Robert C. O'Brien", 233, true);
 
 displayBooks();
