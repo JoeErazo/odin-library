@@ -1,4 +1,4 @@
-const library = (function() {
+(function() {
   const myLibrary = [];
   const addBookButton = document.querySelector(".add-book");
   const modal = document.querySelector("#modal");
@@ -107,6 +107,4 @@ const library = (function() {
   addBookToLibrary("Mrs. Frisby and the Rats of NIMH", "Robert C. O'Brien", 233, true);
 
   displayBooks();
-
-  return { myLibrary };
 })();
