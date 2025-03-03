@@ -54,7 +54,9 @@ const library = (function() {
 
   function enableRemoveButton(button) {
     button.addEventListener("click", function() {
-      button.closest("div.card").remove();
+      // remove corresponding book object from myLibrary array
+      myLibrary.splice(button.closest("div.card").dataset.indexNumber, 1);
+      displayBooks();
     });
   }
 
