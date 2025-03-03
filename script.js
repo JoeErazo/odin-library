@@ -63,12 +63,9 @@ const library = (function() {
   function enableToggleRead(button) {
     button.addEventListener("click", function() {
       const cardDiv = button.closest("div.card");
-      const readContainer = cardDiv.querySelector("p.read");
       // toggle read status on Book object referenced in card
       myLibrary[cardDiv.dataset.indexNumber].read = !myLibrary[cardDiv.dataset.indexNumber].read;
-      readContainer.textContent =
-        readContainer.textContent === "Read" ? "Not Read" : "Read";
-      button.textContent = button.textContent === "🗸" ? "᠆" : "🗸";
+      displayBooks();
     });
   }
 
