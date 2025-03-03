@@ -1,4 +1,4 @@
-(function() {
+const library = (function() {
   const myLibrary = [];
   const addBookButton = document.querySelector(".add-book");
   const modal = document.querySelector("#modal");
@@ -32,7 +32,7 @@
     let cardsHTML = "";
     myLibrary.forEach((book) => {
       cardsHTML += `
-        <div class="card">
+        <div class="card" data-index-number="${myLibrary.indexOf(book)}">
           <button class="toggle-read">${book.read ? "🗸" : "᠆"}</button>
           <button class="remove-card">☓</button>
           <div class="book-cover"></div>
@@ -60,9 +60,10 @@
 
   function enableToggleRead(button) {
     button.addEventListener("click", function() {
-      const readContainer = button
-                              .closest("div.card")
-                              .querySelector("p.read");
+      const cardDiv = button.closest("div.card");
+      const readContainer = cardDiv.querySelector("p.read");
+      // toggle read status on Book object referenced in card
+      myLibrary[cardDiv.dataset.indexNumber].read = !myLibrary[cardDiv.dataset.indexNumber].read;
       readContainer.textContent =
         readContainer.textContent === "Read" ? "Not Read" : "Read";
       button.textContent = button.textContent === "🗸" ? "᠆" : "🗸";
@@ -107,4 +108,6 @@
   addBookToLibrary("Mrs. Frisby and the Rats of NIMH", "Robert C. O'Brien", 233, true);
 
   displayBooks();
+
+  return { myLibrary };
 })();
